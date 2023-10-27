@@ -6,7 +6,9 @@ public class PrintCubVolume {
         System.out.print("Enter size : ");
             n = input.nextInt();
             for(int i = n; i > n+10; i++){
-                volume = cube(i< n +11);
+                volume = cube( );
+
+                
                 System.out.println(i + " " + volume);
     }
 }
