@@ -27,6 +27,5 @@ public class GradeSummary {
         System.out.print(arr[i] +"\t" );
         }
     
-        
     }
 }
