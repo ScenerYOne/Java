@@ -1,6 +1,6 @@
 public class MajorCourse extends Course {
-    protected String year;
-    public MajorCourse(String id, int u, String g, String y){
+    protected int year;
+    public MajorCourse(String id, int u, String g, int y){
         super(id, u, g);
         this.year = y;
 

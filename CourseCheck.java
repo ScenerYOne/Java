@@ -45,7 +45,7 @@ public class CourseCheck {
             
     }
 
-    public static int calPassSubject(Course[] courses) {
+    public static int calPassSubject1(Course[] courses) {
         int passedStudents = 0;
         
         for (int i=0; i < courses.length; i++) {
