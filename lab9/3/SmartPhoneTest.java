@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class SmartPhoneTest {
@@ -38,7 +39,7 @@ public class SmartPhoneTest {
 
         char choice;
         int number;
-        System.out.println("Select search by:");
+        System.out.println("Select search by");
         System.out.println("1: Phone number");
         System.out.println("2: Brand");
         System.out.println("3: ROM");
@@ -130,9 +131,149 @@ public class SmartPhoneTest {
             input.nextLine(); // Consume newline left by nextChar
 
         } while (choice == 'y' || choice == 'Y');
-        System.out.println("Thanks for using "); 
+            System.out.println("Thanks for using "); 
+            System.out.println("================================================");
+
+
+
+            System.out.println("Select search by");
+            System.out.println("1: Phone number");
+            System.out.println("2: Brand");
+            System.out.println("3: ROM");
+            System.out.println("4: OS");
+
+        do{
+            System.out.print("Select: ");
+            number = input.nextInt();
+            input.nextLine(); // Consume newline
+
+                switch (number) {
+                    case 1:
+                            System.out.print("Delete by phone number: ");
+                            String phoneNumber = input.nextLine();
+                            boolean found = false;
+
+                            // Iterate through the list of phones
+                            for (int i = 0; i < phones.size(); i++) {
+                                SmartPhone phone = phones.get(i);
+                                if (phone.getNumber().equals(phoneNumber)) {
+                                    phones.remove(i); // Remove the phone if the number matches
+                                    found = true;
+                                    System.out.println("Delete completed");
+                                    break;
+                                }
+                            }
+                            System.out.println(test.toString());
+
+                            if (!found) {
+                                System.out.println("Phone number not found. No deletion performed.");
+                            }
+                            // Print updated list of phones
+                            
+                            for (int i = 0; i < phones.size(); i++) {
+                                System.out.println((i + 1) + ". " + phones.get(i).toString());
+                            }
+
+                            
+                            totalRAM = phones.stream().mapToInt(SmartPhone::getRam).sum();
+                            totalROM = phones.stream().mapToInt(SmartPhone::getRom).sum();
+                            System.out.println("================================================");
+                            System.out.println("Total RAM: " + totalRAM + " GB, Total ROM: " + totalROM + " GB");
+
+                        break;
+                              
+                    case 2:
+                            System.out.print("Delete by Brand: ");
+                            String brandToDelete = input.nextLine();
+                            boolean brandFound = false;
+                        
+                            // Iterate through the list of phones
+                            for (int j = 0; j < phones.size(); j++) {
+                                SmartPhone phone = phones.get(j);
+                                if (phone.getBrand().equalsIgnoreCase(brandToDelete)) {
+                                    phones.remove(j); // Remove the phone if the brand matches
+                                    brandFound = true;
+                                    System.out.println("Delete completed" + brandToDelete );
+                                    break; // Break after deleting the first occurrence of the brand
+                                }
+                            }
+                        
+                            if (!brandFound) {
+                                System.out.println("Can not Delete : " + brandToDelete);
+                            }
+                        break;
+
+                    case 3:
+                            System.out.print("Delete by ROM : ");
+                            int romSizeToDelete = Integer.parseInt(input.nextLine());
+                            boolean romSizeFound = false;
+                        
+                            // Iterate through the list of phones
+                            for (int j = 0; j < phones.size(); j++) {
+                                SmartPhone phone = phones.get(j);
+                                if (phone.getRom() == romSizeToDelete) {
+                                    phones.remove(j); 
+                                    romSizeFound = true;
+                                    System.out.println("Delete completed " + romSizeToDelete);
+                                    break; 
+                                }
+                            }
+                        
+                            if (!romSizeFound) {
+                                System.out.println("No phones found with ROM size " + romSizeToDelete + ". Can not Delete.");
+                            }
+                        break;
+
+                        case 4:
+                        System.out.print("Delete by OS: ");
+                        String osToDelete = input.nextLine();
+                        boolean osFound = false;
+                    
+                        for (int i = phones.size() - 1; i >= 0; i--) {
+                            SmartPhone phone = phones.get(i);
+                            if (phone.getOs().equalsIgnoreCase(osToDelete)) {
+                                phones.remove(i); // Remove the phone if the OS matches
+                                osFound = true;
+                            }
+                        }
+
+                        if (!osFound) {
+                            System.out.println("No phones found with OS '" + osToDelete + "'. No deletion performed.");
+                        } else {
+                            System.out.println("Delete completed");
+                            System.out.println(test.toString());
+                            for (SmartPhone phone : phones) {
+                                System.out.println(phone.toString());
+                            }
+
+                            int totalRAM1 = phones.stream().mapToInt(SmartPhone::getRam).sum();
+                            int totalROM2 = phones.stream().mapToInt(SmartPhone::getRom).sum();
+                            System.out.println("================================================");
+                            System.out.println("Total RAM: " + totalRAM1 + " GB, Total ROM: " + totalROM2 + " GB");
+                        }
+                        break;
+                    
+                    
+                    
+
+                    
+                }
+
+            System.out.print("Continue [y/n]: ");
+            choice = input.next().charAt(0);
+            input.nextLine();
+
+        }   while (choice == 'y' || choice == 'Y');
+        System.out.println("Thanks you Bye!");  
+
+
+
+
     }
+
+    
 }
+
 
 
 
