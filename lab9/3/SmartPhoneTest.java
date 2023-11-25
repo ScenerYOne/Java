@@ -8,10 +8,10 @@ public class SmartPhoneTest {
 
         // Phone data initialization
         SmartPhone phone1 = new SmartPhone("0819866339", "Huawei", "Android", 8, 64);
-        SmartPhone phone2 = new SmartPhone("0868884661", "iPhone", "iOS", 16, 128);
-        SmartPhone phone3 = new SmartPhone("065899772", "Oppo", "Android", 4, 64);
-        SmartPhone phone4 = new SmartPhone("0878884661", "iPhone", "iOS", 16, 128);
-        SmartPhone phone5 = new SmartPhone("095899772", "Oppo", "Android", 8, 128);
+        SmartPhone phone2 = new SmartPhone("0868884661", "iPhone", "iOS",    16, 128);
+        SmartPhone phone3 = new SmartPhone("065899772",  "Oppo",   "Android", 4, 64);
+        SmartPhone phone4 = new SmartPhone("0878884661", "iPhone", "iOS",    16, 128);
+        SmartPhone phone5 = new SmartPhone("095899772",  "Oppo",   "Android", 8, 128);
 
         phones.add(phone1);
         phones.add(phone2);
