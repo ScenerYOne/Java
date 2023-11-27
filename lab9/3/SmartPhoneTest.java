@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class SmartPhoneTest {
@@ -7,7 +6,6 @@ public class SmartPhoneTest {
         Scanner input = new Scanner(System.in);
         ArrayList<SmartPhone> phones = new ArrayList<>();
 
-        // Phone data initialization
         SmartPhone phone1 = new SmartPhone("0819866339", "Huawei", "Android", 8, 64);
         SmartPhone phone2 = new SmartPhone("0868884661", "iPhone", "iOS",    16, 128);
         SmartPhone phone3 = new SmartPhone("065899772",  "Oppo",   "Android", 4, 64);
@@ -20,15 +18,13 @@ public class SmartPhoneTest {
         phones.add(phone4);
         phones.add(phone5);
 
-        // Creating Human object
         Human test = new Human("AAA", 26, "ID 38900005645", phones);
         System.out.println(test.toString());
 
-        // Calculating total RAM and ROM
         int totalRAM = phones.stream().mapToInt(SmartPhone::getRam).sum();
         int totalROM = phones.stream().mapToInt(SmartPhone::getRom).sum();
 
-        // Displaying phone details
+        
         for (int i = 0; i < phones.size(); i++) {
             System.out.println((i + 1) + ". " + phones.get(i).toString());
         }
@@ -48,7 +44,7 @@ public class SmartPhoneTest {
         do {
             System.out.print("Select: ");
             number = input.nextInt();
-            input.nextLine(); // Consume newline
+            input.nextLine(); 
             
             switch (number) {
                 case 1:
@@ -85,7 +81,7 @@ public class SmartPhoneTest {
                 case 3:
                     System.out.print("Enter ROM : ");
                     int romSize = input.nextInt();
-                    input.nextLine(); // Consume newline
+                    input.nextLine();
                     int count = 0;
                     StringBuilder matchingPhoneNumbers = new StringBuilder();
                     for (SmartPhone phone : phones) {
@@ -128,7 +124,7 @@ public class SmartPhoneTest {
 
             System.out.print("Continue [y/n]: ");
             choice = input.next().charAt(0);
-            input.nextLine(); // Consume newline left by nextChar
+            input.nextLine(); 
 
         } while (choice == 'y' || choice == 'Y');
             System.out.println("Thanks for using "); 
@@ -145,19 +141,18 @@ public class SmartPhoneTest {
         do{
             System.out.print("Select: ");
             number = input.nextInt();
-            input.nextLine(); // Consume newline
+            input.nextLine(); 
 
                 switch (number) {
                     case 1:
                             System.out.print("Delete by phone number: ");
                             String phoneNumber = input.nextLine();
                             boolean found = false;
-
-                            // Iterate through the list of phones
+                            
                             for (int i = 0; i < phones.size(); i++) {
                                 SmartPhone phone = phones.get(i);
                                 if (phone.getNumber().equals(phoneNumber)) {
-                                    phones.remove(i); // Remove the phone if the number matches
+                                    phones.remove(i); 
                                     found = true;
                                     System.out.println("Delete completed");
                                     break;
@@ -168,7 +163,7 @@ public class SmartPhoneTest {
                             if (!found) {
                                 System.out.println("Phone number not found. No deletion performed.");
                             }
-                            // Print updated list of phones
+
                             
                             for (int i = 0; i < phones.size(); i++) {
                                 System.out.println((i + 1) + ". " + phones.get(i).toString());
@@ -187,14 +182,13 @@ public class SmartPhoneTest {
                             String brandToDelete = input.nextLine();
                             boolean brandFound = false;
                         
-                            // Iterate through the list of phones
                             for (int j = 0; j < phones.size(); j++) {
                                 SmartPhone phone = phones.get(j);
                                 if (phone.getBrand().equalsIgnoreCase(brandToDelete)) {
-                                    phones.remove(j); // Remove the phone if the brand matches
+                                    phones.remove(j); 
                                     brandFound = true;
                                     System.out.println("Delete completed" + brandToDelete );
-                                    break; // Break after deleting the first occurrence of the brand
+                                    break; 
                                 }
                             }
                         
@@ -208,7 +202,7 @@ public class SmartPhoneTest {
                             int romSizeToDelete = Integer.parseInt(input.nextLine());
                             boolean romSizeFound = false;
                         
-                            // Iterate through the list of phones
+
                             for (int j = 0; j < phones.size(); j++) {
                                 SmartPhone phone = phones.get(j);
                                 if (phone.getRom() == romSizeToDelete) {
@@ -232,7 +226,7 @@ public class SmartPhoneTest {
                         for (int i = phones.size() - 1; i >= 0; i--) {
                             SmartPhone phone = phones.get(i);
                             if (phone.getOs().equalsIgnoreCase(osToDelete)) {
-                                phones.remove(i); // Remove the phone if the OS matches
+                                phones.remove(i);
                                 osFound = true;
                             }
                         }
@@ -253,12 +247,7 @@ public class SmartPhoneTest {
                         }
                         break;
                     
-                    
-                    
-
-                    
-                }
-
+                } 
             System.out.print("Continue [y/n]: ");
             choice = input.next().charAt(0);
             input.nextLine();
