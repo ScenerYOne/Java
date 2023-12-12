@@ -1,9 +1,9 @@
 public interface Movable {
-    void moveUp(int y);
+    void moveUp(int deltaY);
 
-    void moveDown(int y);
+    void moveDown(int deltaY);
 
-    void moveLeft(int x);
+    void moveLeft(int deltaX);
 
-    void moveRight(int x);
+    void moveRight(int deltaX);
 }

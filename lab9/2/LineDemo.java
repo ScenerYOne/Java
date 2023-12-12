@@ -1,51 +1,43 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LineDemo {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Please enter the number of lines: ");
-        int numberOfLines = scanner.nextInt();
+        ArrayList<Point2D> points = new ArrayList<>();
+        points.add(new Point2D(5, 7));
+        points.add(new Point2D(10, 12));
+        points.add(new Point2D(20, 12));
+        points.add(new Point2D(15, 22));
+        points.add(new Point2D(30, 10));
+        points.add(new Point2D(24, 20));
 
-        int requiredPoints = numberOfLines * 2;
-        System.out.println("\nYou need " + requiredPoints + " Points to form " + numberOfLines + " Lines.");
+        System.out.println("Line No. 1. From " + points.get(0) + " to " + points.get(1));
+        System.out.println("Slope is " + points.get(0).calculateSlope(points.get(1)) + " Distance is " + points.get(0).calculateDistance(points.get(1)));
+        System.out.println("Line No. 2. From " + points.get(2) + " to " + points.get(3));
+        System.out.println("Slope is " + points.get(2).calculateSlope(points.get(3)) + " Distance is " + points.get(2).calculateDistance(points.get(3)));
+        System.out.println("Line No. 3. From " + points.get(4) + " to " + points.get(5));
+        System.out.println("Slope is " + points.get(4).calculateSlope(points.get(5)) + " Distance is " + points.get(4).calculateDistance(points.get(5)));
 
-        Point2D[] points = new Point2D[requiredPoints];
-        Line[] lines = new Line[numberOfLines];
+        System.out.println("=============================================");
+        System.out.println("After Move Point");
 
-        for (int i = 0; i < requiredPoints; i += 2) {
-            System.out.println("Enter coordinates for Point " + (i + 1) + ":");
-            System.out.print("x: ");
-            int x1 = scanner.nextInt();
-            System.out.print("y: ");
-            int y1 = scanner.nextInt();
+      //  for (Point2D point : points) {
+            points.get(0).moveLeft(10);
+              points.get(1).moveLeft(10);
+            points.get(0).moveUp(20);
+             points.get(1).moveUp(10);
 
-            System.out.println("Enter coordinates for Point " + (i + 2) + ":");
-            System.out.print("x: ");
-            int x2 = scanner.nextInt();
-            System.out.print("y: ");
-            int y2 = scanner.nextInt();
+             points.get(2).moveRight(30);
+              points.get(3).moveRight(30);
+            points.get(2).moveDown(100);
+             points.get(3).moveDown(100);
 
-            points[i] = new Point2D(x1, y1);
-            points[i + 1] = new Point2D(x2, y2);
 
-            lines[i / 2] = new Line(points[i], points[i + 1]);
-        }
-
-        System.out.println("=================");
-        System.out.println("Initial Lines");
-        for (Line line : lines) {
-            System.out.println(line);
-        }
-
-        System.out.println("=================");
-        System.out.println("After Move Points");
-        for (Point2D point : points) {
-            point.moveLeft(10);
-            point.moveUp(20);
-        }
-
-        for (Line line : lines) {
-            System.out.println(line);
-        }
+        System.out.println("Line No. 1. From " + points.get(0) + " to " + points.get(1));
+        System.out.println("Slope is " + points.get(0).calculateSlope(points.get(1)) + " Distance is " + points.get(0).calculateDistance(points.get(1)));
+        System.out.println("Line No. 2. From " + points.get(2) + " to " + points.get(3));
+        System.out.println("Slope is " + points.get(2).calculateSlope(points.get(3)) + " Distance is " + points.get(2).calculateDistance(points.get(3)));
+        System.out.println("Line No. 3. From " + points.get(4) + " to " + points.get(5));
+        System.out.println("Slope is " + points.get(4).calculateSlope(points.get(5)) + " Distance is " + points.get(4).calculateDistance(points.get(5)));
     }
 }

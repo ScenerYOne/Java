@@ -1,34 +1,29 @@
+
 import java.util.ArrayList;
-class Major {
+
+public class Major {
     private String name;
     private ArrayList<Student> students;
 
-    public Major(String n, ArrayList<Student> s) {
-        this.name = n;
-        this.students = s;
+    public Major(String name) {
+        this.name = name;
+        this.students = new ArrayList<>();
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public ArrayList<Student> getStudents() {
-        return this.students;
+        return students;
     }
 
     public boolean deleteStudent(Student student) {
-        return this.students.remove(student);
+        return students.remove(student);
     }
+
 
     public String toString() {
         return "Major " + name + ": " + students.size() + " Students";
     }
 }
-
-
-
-
-
-
-
-

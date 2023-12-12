@@ -1,13 +1,14 @@
-class Student {
-    private final Login login;
+
+public class Student {
     private String studentID;
     private String name;
+    private Login login;
     private Major major;
 
-    Student(String id, String n, Login l) {
-        this.studentID = id;
-        this.name = n;
-        this.login = l;
+    public Student(String studentID, String name, Login login) {
+        this.studentID = studentID;
+        this.name = name;
+        this.login = login;
     }
 
     public String getStudentID() {
@@ -19,18 +20,19 @@ class Student {
     }
 
     public Login getLogin() {
-        return this.login;
+        return login;
     }
 
     public Major getMajor() {
-        return this.major;
+        return major;
     }
 
     public void setMajor(Major major) {
         this.major = major;
     }
 
+
     public String toString() {
-        return "ID: " + studentID + ", Name: " + name;
+        return "ID: " + studentID + " Name: " + name;
     }
 }
